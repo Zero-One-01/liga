@@ -7,9 +7,12 @@
 #include <ctime>
 #include "menu.h"
 
+// ### Haupt-Einstiegspunkt
 int main()
 {
+	// ### Rufe das Hauptmenü auf
 	mainMenu();
 
+	// ### Beende ohne Fehler-Code
 	return 0;
 }
