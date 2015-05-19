@@ -1,1 +1,2 @@
+void writeInstruction();
 void mainMenu();
