@@ -6,7 +6,7 @@
 
 void writeInstruction()
 {
-	std::cout << "Bitte wählen Sie eine Aktion aus: ";
+	std::cout << "Bitte wählen Sie eine Aktion aus: " << std::endl;
 }
 
 void mainMenu()
@@ -20,6 +20,7 @@ void mainMenu()
 	std::cout << "[0] Beenden" << std::endl;
 	
 	char input;
+	bool breakout = false;
 
 	do
 	{
@@ -28,7 +29,7 @@ void mainMenu()
 		switch (input)
 		{
 			case '1':
-				// ### Anweisung 1
+				breakout = true;
 				break;
 			case '2':
 				// ### Anweisung 2
@@ -38,7 +39,23 @@ void mainMenu()
 				break;
 		}
 
-	} while (input != '0');
+	} while (input != '0' && breakout == false);
 
 }
 
+void writeTournamentMenu()
+{
+	FILE *competitionDatabase;
+	fopen_s(&competitionDatabase, "D:\\competition.dat", "rw");
+	
+	if (competitionDatabase == NULL)
+	{
+		std::cout << "Fehler beim Laden der Datenbank." << std::endl;
+		system("PAUSE");
+		return;
+	}
+
+	if (feof(competitionDatabase)){
+		std::cout << "Es wurden keine Ligen gefunden.";
+	}
+}
