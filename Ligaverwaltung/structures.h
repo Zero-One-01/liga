@@ -1,25 +1,28 @@
 #include "stdafx.h"
 #include <ctime>
 
+// ### Liege Struktur
 struct strLeague {
-	int id;
-	char cTitle[32];
-	time_t date;
+	int id;				// ### ID der Liga
+	char cTitle[32];	// ### Titel der Liga
+	time_t date;		// ### Zeitstempel der Liga
 };
 
+// ### Team Struktur
 struct strTeam {
-	int id;
-	char cTitle[32];
-	int iPoints;
-	int iDefeats;
-	int iWins;
-	int iDraws;
+	int id;				// ### ID des Teams
+	char cTitle[32];	// ### Name des Teams
+	int iPoints;		// ### Gesamt errechnete Punkte
+	int iDefeats;		// ### Niederlagen
+	int iWins;			// ### Siege 
+	int iDraws;			// ### Unentschieden
 };
 
+// ### Spiel Struktur
 struct strGame {
-	int iTeamHome;
-	int iTeamOutwards;
-	int iPointsHome;
-	int iPointsOutwards;
-	time_t date;
+	int iTeamHome;			// ### Referenz zu struct strTeam (Heimspieler)
+	int iTeamOutwards;		// ### Referenz zu struct strTeam (Gastspieler)
+	int iPointsHome;		// ### Punkte der Heimspieler
+	int iPointsOutwards;	// ### Punkte der Gastspieler
+	time_t date;			// ### Zeitstempel des Spielt
 };
