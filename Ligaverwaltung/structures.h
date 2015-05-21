@@ -22,7 +22,9 @@ struct strTeam {
 struct strGame {
 	int iTeamHome;			// ### Referenz zu struct strTeam (Heimspieler)
 	int iTeamOutwards;		// ### Referenz zu struct strTeam (Gastspieler)
+	int iGoalsHome;		// ### Tore der Heimspieler
+	int iGoalsOutwards;	// ### Tore der Gastspieler
 	int iPointsHome;		// ### Punkte der Heimspieler
-	int iPointsOutwards;	// ### Punkte der Gastspieler
+	int iPointsOutwards;		// ### Punkte der Gastspieler
 	time_t date;			// ### Zeitstempel des Spielt
 } strGame;
