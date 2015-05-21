@@ -1,4 +1,4 @@
-// Ligaverwaltung.cpp : Definiert den Einstiegspunkt für die Konsolenanwendung.
+// Ligaverwaltung.cpp : Definiert den Einstiegspunkt fÃ¼r die Konsolenanwendung.
 //
 
 #include "stdafx.h"
@@ -19,7 +19,7 @@ int main()
 	// ### Schreibe ein kleines Logo
 	writeTitle();
 
-	// ### Rufe das Hauptmenü auf
+	// ### Rufe das HauptmenÃ¼ auf
 	mainMenu();
 
 	// ### Beende ohne Fehler-Code
@@ -30,7 +30,7 @@ void writeTitle()
 {
 	std::cout << "###########################################" << std::endl;
 	std::cout << "#           Ligaverwaltung v0.1           #" << std::endl;
-	std::cout << "#     By: Christopher, Juric & Pascal     #" << std::endl;
+	std::cout << "#     By: Christopher, Zeljko & Pascal     #" << std::endl;
 	std::cout << "###########################################" << std::endl;
 	std::cout << std::endl << std::endl;
 }
