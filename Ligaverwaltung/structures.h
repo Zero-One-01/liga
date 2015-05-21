@@ -6,7 +6,7 @@ struct strLeague {
 	int id;				// ### ID der Liga
 	char cTitle[32];	// ### Titel der Liga
 	time_t date;		// ### Zeitstempel der Liga
-};
+} strLeague;
 
 // ### Team Struktur
 struct strTeam {
@@ -16,7 +16,7 @@ struct strTeam {
 	int iDefeats;		// ### Niederlagen
 	int iWins;			// ### Siege 
 	int iDraws;			// ### Unentschieden
-};
+} strTeam;
 
 // ### Spiel Struktur
 struct strGame {
@@ -25,4 +25,4 @@ struct strGame {
 	int iPointsHome;		// ### Punkte der Heimspieler
 	int iPointsOutwards;	// ### Punkte der Gastspieler
 	time_t date;			// ### Zeitstempel des Spielt
-};
+} strGame;

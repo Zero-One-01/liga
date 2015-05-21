@@ -2,26 +2,27 @@
 #include "stdafx.h"
 #include <iostream>
 #include <conio.h>
+#include "menu.h"
+#include "structures.h"
 
+FILE *competitionDatabase;
 
 void writeInstruction()
 {
-	std::cout << "Bitte wählen Sie eine Aktion aus: " << std::endl;
+	std::cout << "Bitte w\x84 \bhlen Sie eine Aktion aus: " << std::endl;
 }
 
 void mainMenu()
 {
-	
-	// ### Vor jedem Schreiben eines Menu's eine Anweisung ausgeben
-	writeInstruction();
-
 	std::cout << "[1] Turnierverwaltung " << std::endl;
 	std::cout << "[2] Optionen" << std::endl;
-	std::cout << "[0] Beenden" << std::endl;
+	std::cout << "[0] Beenden" << std::endl << std::endl;
 	
-	char input;
-	bool breakout = false;
+	// ### Nach jedem Schreiben eines Menu's eine Anweisung ausgeben
+	writeInstruction();
 
+	char input;
+	
 	do
 	{
 		std::cin >> input;
@@ -29,7 +30,7 @@ void mainMenu()
 		switch (input)
 		{
 			case '1':
-				breakout = true;
+				writeTournamentMenu();
 				break;
 			case '2':
 				// ### Anweisung 2
@@ -39,23 +40,42 @@ void mainMenu()
 				break;
 		}
 
-	} while (input != '0' && breakout == false);
+	} while (input != '0');
 
 }
 
 void writeTournamentMenu()
 {
-	FILE *competitionDatabase;
-	fopen_s(&competitionDatabase, "D:\\competition.dat", "rw");
+	system("cls");
+
+	readAndWriteCompetitions();
+
+	std::cout << "====================================" << std::endl;
+	std::cout << "[1] L\x94schen" << std::endl;
+	std::cout << "[2] Bearbeiten" << std::endl;
+	std::cout << "[3] Hinzuf\x81gen" << std::endl << std::endl;
 	
+	writeInstruction();
+}
+
+void readAndWriteCompetitions()
+{
+	fopen_s(&competitionDatabase, "D:\\competitions.dat", "a+");
+
 	if (competitionDatabase == NULL)
 	{
-		std::cout << "Fehler beim Laden der Datenbank." << std::endl;
+		std::cout << "Fehler beim Lesen der Datenbank." << std::endl;
 		system("PAUSE");
 		return;
 	}
 
-	if (feof(competitionDatabase)){
-		std::cout << "Es wurden keine Ligen gefunden.";
+	int counter = 0;
+	while (!feof(competitionDatabase))
+	{
+		fread(&strLeague, sizeof(strLeague), 1, competitionDatabase);
+
+		std::cout << "[" << ++counter << "]" << " >> " << strLeague.cTitle << std::endl;
 	}
+
+	fclose(competitionDatabase);
 }
